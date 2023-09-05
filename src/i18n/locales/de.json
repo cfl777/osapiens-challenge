@@ -11,5 +11,10 @@
       "intro": "Dies ist eine Demo-Anwendung mit einigen Störungen und Fehlern, von denen wir hoffen, dass Sie sie finden können. 😃 Hier die Liste der <b>bekannten</b> Probleme:",
       "sidenote": "Alle Fehler haben einen unterschiedlichen Grad an Komplexität und sind alle ziemlich häufig (echte Weltprobleme für jeden React-Entwickler). Um alle offenen Punkte zu lösen, sind unterschiedliche Fähigkeiten erforderlich: Googeln, Erfahrung, Lesen von Dokumenten und Fehlermeldungen, Kreativität und analytisches Denken.",
       "timedOut": "Zeit abgelaufen"
+    },
+    "accessDenied": {
+      "speakToYourAdmin": "Sprechen Sie mit Ihrem Administrator",
+      "logout": "Ausloggen",
+      "denied": "Zugriff abgelehnt"
     }
 }

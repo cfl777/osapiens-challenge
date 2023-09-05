@@ -14,6 +14,8 @@ import { useTheme } from "@mui/material/styles";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { User } from "../../api/services/User/store";
+import { ERoute } from "../../types/global";
+import { useHistory } from "react-router-dom";
 
 interface AvatarMenuProps {
   user: User;
@@ -46,6 +48,7 @@ const stringAvatar = (user: User) => {
 const AvatarMenu = (props: AvatarMenuProps): JSX.Element => {
   const { user } = props;
   const theme = useTheme();
+  const history = useHistory();
   const { t } = useTranslation("app");
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -55,7 +58,10 @@ const AvatarMenu = (props: AvatarMenuProps): JSX.Element => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  // const history = useHistory();
+  const handleAccessDenied = () => {
+    handleClose();
+    history.push(ERoute.ACCESS_DENIED);
+  };
 
   return (
     <div>
@@ -82,7 +88,10 @@ const AvatarMenu = (props: AvatarMenuProps): JSX.Element => {
           </Typography>
           <Box m={1} />
           <Button
-            // onClick={() => history.push(ERoute.SETTINGS_ACCOUNT)}
+            // Enhancement: I initially started creating a ERoute.SETTINGS_ACCOUNT component, but I wasn't sure if it was necessary. 
+            // But since the AccessDenied component hasn't been used, I just added it for demo purposes. 
+            // But happy to create a new component if there is something specific you want to see.
+            onClick={handleAccessDenied} 
             variant="outlined"
             color="primary"
             size="medium"

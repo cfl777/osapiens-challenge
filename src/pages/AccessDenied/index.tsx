@@ -6,6 +6,8 @@ import { styled, useTheme } from "@mui/material/styles";
 import { observer } from "mobx-react";
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { ERoute } from "../../types/global";
+import { useHistory } from "react-router-dom";
 
 const Container = styled("div")(() => ({
   display: "flex",
@@ -19,21 +21,20 @@ const Container = styled("div")(() => ({
 const AccessDenied: React.FC = () => {
   const { t } = useTranslation("app");
   const theme = useTheme();
+  const history = useHistory();
 
   const color = theme.palette.error.main;
 
   React.useEffect(() => {
     // on screen leave
     return () => {
+      // TODO: Further enhancement is too add real user account management, requiring a need to clear cache. 
       // clearCache()
     };
-    // eslint-disable-next-line
   }, []);
 
-  // TODO: aldd all i18n texts to locales and refactor file
-
-  const handleLogout = () => {
-    // TODO: Added for eslint failure. Remove once implemented.
+  const handleLogout = () => {    
+    history.push(ERoute.HOME);
   };
 
   return (
@@ -41,11 +42,11 @@ const AccessDenied: React.FC = () => {
       <Container>
         <Icon size={2} color={color} path={mdiAlert} />
         <Typography variant="h5" sx={{ color }}>
-          {t("AccessDenied")}
+          {t("accessDenied.denied")}
         </Typography>
-        <Typography>{t("speakToYourAdmin")}</Typography>
+        <Typography>{t("accessDenied.speakToYourAdmin")}</Typography>
         <Button sx={{ color }} onClick={handleLogout}>
-          {t("logout")}
+          {t("accessDenied.logout")}
         </Button>
       </Container>
       <Box sx={{ flex: 3 }}></Box>
