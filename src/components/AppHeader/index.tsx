@@ -1,4 +1,4 @@
-import { Grow, Box, Theme, Toolbar, Typography } from "@mui/material";
+import { Box, Theme, Toolbar, Typography } from "@mui/material";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { styled, useTheme } from "@mui/material/styles";
 import React, { useEffect, useState } from "react";
@@ -81,9 +81,7 @@ const AppHeader = React.forwardRef((props: AppHeaderProps, ref: React.ForwardedR
           </Box>
           <Box sx={{ flex: 1, justifyContent: "flex-end", display: "flex" }}>
             {user && user.eMail && (
-              <Grow in={Boolean(user && user.eMail)}>
-                <AvatarMenu user={user} />
-              </Grow>
+              <AvatarMenu user={user} />
             )}
           </Box>
         </Box>
