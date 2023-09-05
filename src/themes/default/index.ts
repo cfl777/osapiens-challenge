@@ -1,6 +1,6 @@
 import { merge } from "lodash";
 
-import { createTheme } from "@mui/material/styles";
+import { createTheme, ThemeOptions } from "@mui/material/styles";
 
 // import MaterialDesignIcons from "!!url-loader!@mdi/font/fonts/materialdesignicons-webfont.woff2"
 import tokens, { fonts, OsapiensThemeTokens } from "./tokens";
@@ -97,14 +97,14 @@ const commonTheme = {
 
 const muiBaseTheme = createTheme();
 
-const tokensLight: any = merge({}, commonTheme, {
+const tokensLight = merge({}, commonTheme, {
   palette: {
     mode: "light"
   },
   tokens
 });
 
-const tokensDark: any = merge({}, commonTheme, {
+const tokensDark = merge({}, commonTheme, {
   palette: {
     mode: "dark",
     background: {
@@ -116,8 +116,8 @@ const tokensDark: any = merge({}, commonTheme, {
 });
 
 const osapiensTheme = {
-  light: createTheme(tokensLight),
-  dark: createTheme(tokensDark)
+  light: createTheme(tokensLight as ThemeOptions),
+  dark: createTheme(tokensDark as ThemeOptions)
 };
 
 export default osapiensTheme;

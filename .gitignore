@@ -1,1 +1,4 @@
 node_modules
+.idea/vcs.xml
+.idea/osapiens-challenge.iml
+.idea/modules.xml

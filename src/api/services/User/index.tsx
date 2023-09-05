@@ -22,4 +22,4 @@ export const StoreProvider: React.FC = (props) => {
 HOOK DEFINITION
 */
 
-export const useUserStore = () => useContext(UserStoreContext);
+export const useUserStore = () : Store | null => useContext(UserStoreContext);

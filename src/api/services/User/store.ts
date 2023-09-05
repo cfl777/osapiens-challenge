@@ -36,7 +36,7 @@ export default class UserStore {
       )
     )) as ResultOrErrorResponse<User>;
 
-    if (!!error) {
+    if (error) {
       return {
         status: ActionResultStatus.ERROR,
         error
@@ -45,7 +45,7 @@ export default class UserStore {
 
     if (result) {
       runInAction(() => {
-        this.urser = result;
+        this.user = result;
       });
 
       return {

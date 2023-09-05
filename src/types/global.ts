@@ -1,6 +1,7 @@
 export enum ERoute {
   ROOT = "/",
-  HOME = "/home"
+  HOME = "/home",
+  ACCESS_DENIED = "/access-denied"
 }
 
 export type TRoute = {
@@ -22,6 +23,6 @@ export type ActionSuccess<T> = {
 };
 export type ActionError = {
   status: ActionResultStatus.ERROR;
-  error: any;
+  error: string | Error;
   knownErrors: { [key: string]: string };
 };
