@@ -41,11 +41,19 @@ const AppHeader = React.forwardRef((props: AppHeaderProps, ref: React.ForwardedR
   const countdown = seconds - count;
   const countdownMinutes = `${~~(countdown / 60)}`.padStart(2, "0");
   const countdownSeconds = (countdown % 60).toFixed(0).padStart(2, "0");
+  const countdownTimerCompleted = countdown <= 0;
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
+      if (countdownTimerCompleted) {
+        clearInterval(interval);
+        return;
+      }
+
       setCount((c) => c + 1);
     }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -53,9 +61,16 @@ const AppHeader = React.forwardRef((props: AppHeaderProps, ref: React.ForwardedR
       <Toolbar sx={{ background: "#08140C 0% 0% no-repeat padding-box" }}>
         <Box sx={{ width: "100%", flexDirection: "row", display: "flex" }}>
           <Box>
-            <Typography variant="h6" component="div" color="primary">
-              {countdownMinutes}:{countdownSeconds}
-            </Typography>
+            {!countdownTimerCompleted && (
+              <Typography variant="h6" component="div" color="primary">
+                {countdownMinutes}:{countdownSeconds}
+              </Typography>
+            )}
+            {countdownTimerCompleted && (
+              <Typography variant="h6" component="div" color="red">
+                {t("home.timedOut").toLocaleUpperCase()}
+              </Typography>
+            )}
           </Box>
           <Box sx={{ width: 20, height: 20, flex: 1 }} />
           <Box sx={{ flex: 2 }}>
