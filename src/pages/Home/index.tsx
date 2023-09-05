@@ -55,8 +55,11 @@ const Home = () => {
         <Typography variant="h1" textAlign="center">
           {t("home.welcome")}
         </Typography>
-        <Typography variant="subtitle1" textAlign="center">
-          {t("home.intro")}{" "}
+        <Typography 
+          variant="subtitle1" 
+          textAlign="center" 
+          dangerouslySetInnerHTML={{ __html: t("home.intro")}}
+        >
         </Typography>
         <Typography variant="body2" textAlign="center" color="textSecondary">
           {t("home.sidenote")}
