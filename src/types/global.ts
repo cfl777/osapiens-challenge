@@ -22,6 +22,6 @@ export type ActionSuccess<T> = {
 };
 export type ActionError = {
   status: ActionResultStatus.ERROR;
-  error: any;
+  error: string | Error;
   knownErrors: { [key: string]: string };
 };

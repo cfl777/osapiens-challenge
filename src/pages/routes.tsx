@@ -21,7 +21,7 @@ const Loading = (
     </Box>
   </Grow>
 );
-const lazyLoad = (Component: any) => () => (
+const lazyLoad = (Component: React.FC) => () => (
   <Suspense fallback={Loading}>
     <Component />
   </Suspense>

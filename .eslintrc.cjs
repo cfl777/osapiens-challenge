@@ -5,5 +5,8 @@ module.exports = {
     root: true,
     env: {
         node: true
+    },
+    rules: {
+        '@typescript-eslint/ban-ts-comment': 'off'
     }
 };

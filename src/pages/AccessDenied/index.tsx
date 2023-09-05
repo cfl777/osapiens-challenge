@@ -7,7 +7,7 @@ import { observer } from "mobx-react";
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 
-const Container = styled("div")(({ theme }) => ({
+const Container = styled("div")(() => ({
   display: "flex",
   flex: 4,
   justifyContent: "space-evenly",
@@ -32,7 +32,9 @@ const AccessDenied: React.FC = () => {
 
   // TODO: aldd all i18n texts to locales and refactor file
 
-  const handleLogout = () => {};
+  const handleLogout = () => {
+    // TODO: Added for eslint failure. Remove once implemented.
+  };
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>

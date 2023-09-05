@@ -5,6 +5,6 @@ import "./styles.css";
 
 const rootElement = document.getElementById("root");
 
-const render = (App: any) => ReactDOM.render(<App />, rootElement);
+const render = (App: () => JSX.Element) => ReactDOM.render(<App />, rootElement);
 
 render(App);

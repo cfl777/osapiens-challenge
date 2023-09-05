@@ -3,8 +3,6 @@ import { SnackbarProvider } from "notistack";
 
 import { HashRouter } from "react-router-dom";
 
-import services from "./api/services";
-
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import StylesProvider from "@mui/styles/StylesProvider";
@@ -26,11 +24,11 @@ const classes = {
   info: `${PREFIX}-info`
 };
 
-const CombinedStoreProvider: React.FC<{}> = ({ children }) => {
+const CombinedStoreProvider: React.FC<Record<string, unknown>> = ({ children }) => {
   return <UserStoreProvider>{children}</UserStoreProvider>;
 };
 
-const AppContainer = () => {
+const AppContainer = (): JSX.Element => {
   return (
     <>
       <CssBaseline />
